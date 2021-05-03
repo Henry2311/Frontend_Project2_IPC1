@@ -682,7 +682,7 @@
         }
         console.log(objeto)
 
-        fetch('http://localhost:3000/Doctores', {
+        fetch('https://backenprj2.herokuapp.com/Doctores', {
             								method: 'POST',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -751,7 +751,7 @@
         }
         console.log(objeto)
 
-        fetch('http://localhost:3000/Enfermeras', {
+        fetch('https://backenprj2.herokuapp.com/Enfermeras', {
             								method: 'POST',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -820,7 +820,7 @@
         }
         console.log(objeto)
 
-        fetch('http://localhost:3000/Pacientes', {
+        fetch('https://backenprj2.herokuapp.com/Pacientes', {
             								method: 'POST',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -886,7 +886,7 @@
         }
         console.log(objeto)
 
-        fetch('http://localhost:3000/Medicinas', {
+        fetch('https://backenprj2.herokuapp.com/Medicinas', {
             								method: 'POST',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -919,7 +919,7 @@
             var cadena = ''
             var table = document.querySelector('#BodyFACDOC')
             var doctores = ''
-            fetch('http://localhost:3000/Doctores', {
+            fetch('https://backenprj2.herokuapp.com/Doctores', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -969,7 +969,7 @@
             var cadena = ''
             var table = document.querySelector('#BodyFACE')
             var doctores = ''
-            fetch('http://localhost:3000/Enfermeras', {
+            fetch('https://backenprj2.herokuapp.com/Enfermeras', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -1016,7 +1016,7 @@
           var cadena = ''
           var table = document.querySelector('#BodyFACP')
             var doctores = ''
-          fetch('http://localhost:3000/Pacientes', {
+          fetch('https://backenprj2.herokuapp.com/Pacientes', {
             method: 'GET',
             headers:{
             'Content-Type': 'application/json',
@@ -1064,7 +1064,7 @@
           var table = document.querySelector('#BodyFACM')
             var doctores = ''
           
-          fetch('http://localhost:3000/Medicinas', {
+          fetch('https://backenprj2.herokuapp.com/Medicinas', {
             method: 'GET',
             headers:{
             'Content-Type': 'application/json',

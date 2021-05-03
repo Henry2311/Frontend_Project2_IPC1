@@ -172,7 +172,7 @@
 										}
 										console.log(objeto)
 
-										fetch(`http://localhost:3000/Enfermeras/${usuario}`, {
+										fetch(`https://backenprj2.herokuapp.com/Enfermeras/${usuario}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -224,7 +224,7 @@
 
 			var usuario = sessionStorage.buscar
 			console.log(usuario)
-			fetch(`http://localhost:3000/Enfermeras/${usuario}`, {
+			fetch(`https://backenprj2.herokuapp.com/Enfermeras/${usuario}`, {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -257,7 +257,7 @@
 		function Eliminar(){
 			var usuario = sessionStorage.buscar
             
-            fetch(`http://localhost:3000/Enfermeras/${usuario}`, {
+            fetch(`https://backenprj2.herokuapp.com/Enfermeras/${usuario}`, {
             method: 'DELETE',
             headers:{
                 'Content-Type': 'application/json',

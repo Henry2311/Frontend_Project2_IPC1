@@ -201,7 +201,7 @@
       var cadena = ''
       var nav=''
       var navbar=document.querySelector('#navbar')
-      fetch(`http://localhost:3000/Enfermeras/${nombre}`, {
+      fetch(`https://backenprj2.herokuapp.com/Enfermeras/${nombre}`, {
             method: 'GET',
             headers:{
             'Content-Type': 'application/json',
@@ -253,7 +253,7 @@
     }
 
     function llenarAdoc(){
-      fetch('http://localhost:3000/Doctores', {
+      fetch('https://backenprj2.herokuapp.com/Doctores', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -282,7 +282,7 @@
       var tabla = document.querySelector('#detalles')
             var cadena = ''
             
-            fetch('http://localhost:3000/Citas', {
+            fetch('https://backenprj2.herokuapp.com/Citas', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -338,7 +338,7 @@
 								}
             console.log(objeto)
 
-          fetch(`http://localhost:3000/Cita/${ide}`, {
+          fetch(`https://backenprj2.herokuapp.com/Cita/${ide}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -368,7 +368,7 @@
       var tabla = document.querySelector('#aprobadas')
             var cadena = ''
             
-            fetch('http://localhost:3000/CitasA', {
+            fetch('https://backenprj2.herokuapp.com/CitasA', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -411,7 +411,7 @@
 								}
             console.log(objeto)
 
-          fetch(`http://localhost:3000/Cita/${ide}`, {
+          fetch(`https://backenprj2.herokuapp.com/Cita/${ide}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{

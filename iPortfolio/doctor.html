@@ -243,7 +243,7 @@
 								}
             console.log(objeto)
 
-          fetch(`http://localhost:3000/CitasA/${ide}`, {
+          fetch(`https://backenprj2.herokuapp.com/CitasA/${ide}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -279,7 +279,7 @@
       var cadena = ''
       var nav=''
       var navbar=document.querySelector('#navbar')
-      fetch(`http://localhost:3000/Doctores/${nombre}`, {
+      fetch(`https://backenprj2.herokuapp.com/Doctores/${nombre}`, {
             method: 'GET',
             headers:{
             'Content-Type': 'application/json',
@@ -318,7 +318,7 @@
         var tabla = document.querySelector('#detalles')
             var cadena = ''
             
-            fetch('http://localhost:3000/Citas', {
+            fetch('https://backenprj2.herokuapp.com/Citas', {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -382,7 +382,7 @@
 								}
             console.log(objeto)
 
-          fetch(`http://localhost:3000/Cita/${ide}`, {
+          fetch(`https://backenprj2.herokuapp.com/Cita/${ide}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{
@@ -413,7 +413,7 @@
         var tabla = document.querySelector('#aprobadas')
             var cadena = ''
             
-            fetch(`http://localhost:3000/CitasA/${idDoc}`, {
+            fetch(`https://backenprj2.herokuapp.com/CitasA/${idDoc}`, {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -453,7 +453,7 @@
         var tabla = document.querySelector('#completadas')
             var cadena = ''
             
-            fetch(`http://localhost:3000/CitasA/${idDoc}`, {
+            fetch(`https://backenprj2.herokuapp.com/CitasA/${idDoc}`, {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -496,7 +496,7 @@
 								}
             console.log(objeto)
 
-          fetch(`http://localhost:3000/Cita/${ide}`, {
+          fetch(`https://backenprj2.herokuapp.com/Cita/${ide}`, {
             								method: 'PUT',
             								body: JSON.stringify(objeto),
             								headers:{
