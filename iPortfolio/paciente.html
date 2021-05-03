@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>UMEDIC</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+ 
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.1.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body onload="nombre()">
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile" id="Npaciente">
+        
+        
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>UMedic</h1>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Solicitud de Cita</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Fecha</label>
+                  <input type="date" class="form-control" id="F">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Hora</label>
+                  <input type="time" class="form-control" id="H">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Motivo</label>
+                <input type="text" class="form-control" id="Motivo" >
+              </div>
+              <button type="button" class="login100-form-btn" onclick="CrearCita()">
+                Solicitar Cita
+              </button>
+            </form>
+          </div>
+
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <table class="table table-striped" id="cita">
+              <thead class="thead-dark" id="Tcita">
+                <tr>
+                  <th scope="col">Mótivo</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col">Doctor</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody id="detalles" class="bodyC">
+                
+              </tbody>
+            </table>
+           
+            
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+   
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Tienda de Medicamentos</h2>
+        </div>
+
+        <div class="shop" data-aos="fade-right" id="tienda">
+          
+          
+
+        </div>
+
+
+      </div>
+      <div class="carrito">
+        <div class="section-title">
+          <h2>Pedido</h2>
+        </div>
+        <form class="form-inline">
+          <div class="form-group mb-2" id="tablaCarrito">
+            <table class="table table-striped" id="shopC">
+              <thead class="thead-dark" id="Ttienda">
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Añadir</th>
+                </tr>
+              </thead>
+              <tbody id="carroT" class="bodyC">
+                
+              </tbody>
+              <tfoot id="total">
+                
+              </tfoot>
+            </table>
+
+
+          </div>
+          <button class="boton" type="button" onclick="guardar()">
+            Pagar
+          </button>
+        </form>
+      </div>
+      
+
+    </section><!-- End Resume Section -->
+
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Henry Mendoza</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="">Lab IPC1</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-1.11.0.js" integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    var TienesCita = false;
+    var idCita =''
+    let Tienda = []
+    
+
+    function nombre(){
+      var nombre = sessionStorage.buscarP
+      var div =  document.querySelector('#Npaciente')
+      var cadena = ''
+      var nav=''
+      var navbar=document.querySelector('#navbar')
+      fetch(`http://localhost:3000/Pacientes/${nombre}`, {
+            method: 'GET',
+            headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+
+              cadena += `<img src="assets/img/logo.jpg" alt="" class="img-fluid rounded-circle">
+                    <h1 class="text-light" >${response.Nombre} ${response.Apellido}</h1>
+                  `  
+              nav+=  `<ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Inicio</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Citas</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Tienda</span></a></li>
+          <li><a onclick="verPerfil()" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Modificar Perfil</span></a></li>
+          <li><a href="../index.html" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Cerrar Sesión</span></a></li>
+         
+        </ul>
+                  `  
+      div.innerHTML = cadena
+      navbar.innerHTML = nav
+  })
+      DatosCita()
+      CargarMed()
+      //Carrito()
+    }
+    
+
+    function DatosCita(){
+      var nombre = sessionStorage.buscarP
+      console.log(nombre)
+      var tabla = document.querySelector('#detalles')
+          var cadena = ''
+  
+          fetch(`http://localhost:3000/Citas/${nombre}`, {
+            method: 'GET',
+            headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+
+              if(response.Mensaje=='No existe el usuario con ese nombre'){
+                
+              }else{
+                
+                  cadena += `<tr>
+                  <td class="cell1001"> ${response.Motivo} </td>
+                  <td class="cell1001"> ${response.Fecha} </td>
+                  <td class="cell1001"> ${response.Hora} </td>
+                  <td class="cell1001"> ${response.Doctor} </td>
+                  <td class="cell1001"> ${response.Estado} </td>
+                  </tr>` 
+                  TienesCita=true;
+                  idCita=response.Estado
+                  tabla.innerHTML = cadena
+                
+                
+              }
+              console.log(idCita)
+
+              if(idCita=='Rechazada'){
+                TienesCita=false;
+                eliminar(response.IdCita)
+              }
+              if(idCita=='Completada'){
+                TienesCita=false;
+                
+              }
+              console.log(TienesCita)
+  })
+
+
+    }
+
+
+    
+    function CrearCita(){
+      var nombre = sessionStorage.buscarP
+      var fecha = document.querySelector('#F').value
+      var hora = document.querySelector('#H').value
+      var motivo = document.querySelector('#Motivo').value
+      
+      if(fecha !=''){
+        if(hora !=''){
+          if(motivo!=''){
+            if(idCita=='' || idCita=='Rechazada' || idCita=='Completada'){
+              if(TienesCita==false){
+                    var objeto ={
+											'Paciente' : nombre,
+											'Fecha' : fecha,
+											'Hora': hora,
+											'Motivo': motivo
+										}
+										console.log(objeto)
+
+
+                  fetch('http://localhost:3000/Citas', {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+         
+                							alert(response.Mensaje)
+            							})
+
+              }else{alert("Tienes una cita en curso")}
+            }else{alert("Tienes una cita en curso")}
+          }else{alert("Llena todos los campos para solicitar una cita")}
+        }else{alert("Llena todos los campos para solicitar una cita")}
+      }else{alert("Llena todos los campos para solicitar una cita")}
+
+
+
+      DatosCita()
+
+    }
+
+    function eliminar(idc){
+      console.log(idc);
+
+      if(idc != null){
+        fetch(`http://localhost:3000/Cita/${idc}`, {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',}})
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Error:', err)
+                alert("Ocurrio un error, ver la consola")
+            })
+            .then(response =>{
+                console.log(response);
+               
+            })
+      }
+      
+
+
+            
+
+    }
+
+    function CargarMed(){
+
+          var tabla = document.querySelector('#tienda')
+          var cadena = ''
+  
+          fetch('http://localhost:3000/Medicinas', {
+            method: 'GET',
+            headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+    
+                response.forEach(element => {
+         
+                  console.log(element)
+
+                  cadena += `
+                  <div class="item" id="item1">
+                      <h6>${element.Nombre}</h6>
+                      <h6>Cantidad:</h6>
+                      <h6>${element.Cantidad}</h6>
+                      <h6>Precio:</h6>
+                      <h6>Q${element.Precio}</h6>
+                      <button value=${element.Id} class="login100-form-btn" onclick="agregar(this)" id="${element.Id}">
+                      Agregar al carrito
+                      </button>
+                  </div>
+                  `        
+               
+          });
+      tabla.innerHTML = cadena
+  })
+
+    }
+    //carroT
+    
+  function agregar(boton){
+    console.log(boton)
+    
+    var idmed = boton.value;
+    var tabla = document.querySelector('#carroT')
+    var cadena = ''
+    var footer=''
+    var Fut=document.querySelector('#total')
+    
+
+    fetch(`http://localhost:3000/Carrito/${idmed}`, {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',}})
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Error:', err)
+                alert("Ocurrio un error, ver la consola")
+            })
+            .then(response =>{
+              
+              if(response.Mensaje=='No existe el usuario con ese nombre'){
+                
+              }else{
+                Tienda.push(response);
+                console.log(Tienda);
+                var total=0
+
+                Tienda.forEach(Element => {
+                  console.log(Element)
+                  var precio=Element.Precio
+                  var cant = Element.Cantidad
+                  var SubT = precio*cant
+                  console.log(SubT)
+                  
+                 
+                  
+                  if(Element.Cantidad<=0){
+                    cadena +=''
+                    
+                  }else{
+                    cadena += `<tr>
+                    <td class="cell1001"> ${Element.Nombre} </td>
+                    <td class="cell1001"> ${Element.Precio} </td>
+                    <td class="cell1001"> ${Element.Cantidad} </td>
+                    <td class="cell1001" class="price"> ${SubT} </td>
+                    <td class="cell1002"> <button value="${Element.Id}" onclick="menos(this)" type="button" class="btn btn-outline-dark">-</button> <button value="${Element.Id}" onclick="mas(this)" type="button" class="btn btn-outline-dark">+</button> </td>
+                    </tr>` 
+                    
+                  }
+                  
+                  total+=SubT  
+                  
+                });
+                footer=`<tr>
+                  <th>TOTAL</th>
+                  <th> </th>
+                  <th> </th>
+                  <th>${total} </th>
+                  <th> </th>
+                </tr>`
+                console.log(total)
+                menosCantidad(idmed,1);
+                tabla.innerHTML = cadena
+                Fut.innerHTML = footer
+                
+              }
+            })
+            //sumarT() 
+            
+  }
+
+  function guardar(){
+    var nombre = sessionStorage.buscarP
+    console.log(Tienda)
+    var objeto ={
+											'Paciente' : nombre,
+											'Carrito' : Tienda
+										}
+										console.log(objeto)
+
+
+                fetch(`http://localhost:3000/Carrito/${nombre}`, {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              Factura();
+            							})
+
+
+
+  }
+
+  function mas(boton){
+    
+    var ide = boton.value;
+    var tabla = document.querySelector('#carroT')
+    var Fut=document.querySelector('#total')
+    var cadena = ''
+    var footer=''
+
+    console.log(ide)
+    var total=0;
+    Tienda.forEach(Element=>{
+
+      if(Element.Id==ide){
+        Element.Cantidad+=1
+      }
+      
+      var precio=Element.Precio
+                  var cant = Element.Cantidad
+                  var SubT = precio*cant
+                  console.log(SubT)
+                  
+                  cadena += `<tr>
+                  <td class="cell1001"> ${Element.Nombre} </td>
+                  <td class="cell1001"> ${Element.Precio} </td>
+                  <td class="cell1001"> ${Element.Cantidad} </td>
+                  <td class="cell1001"> ${SubT} </td>
+                  <td class="cell1002"> <button value="${Element.Id}" onclick="menos(this)" type="button" class="btn btn-outline-dark">-</button> <button value="${Element.Id}" onclick="mas(this)" type="button" class="btn btn-outline-dark">+</button> </td>
+                  </tr>`   
+                  
+      
+                  total+=SubT
+    });
+                footer=`<tr>
+                  <th>TOTAL</th>
+                  <th> </th>
+                  <th> </th>
+                  <th>${total} </th>
+                  <th> </th>
+                </tr>`
+                console.log(total)
+                menosCantidad(ide,1);
+                tabla.innerHTML = cadena
+                Fut.innerHTML = footer
+
+  }
+
+  function menos(boton){
+
+    var ide = boton.value;
+    var tabla = document.querySelector('#carroT')
+    var Fut=document.querySelector('#total')
+    var cadena = ''
+    var footer=''
+
+    console.log(ide)
+    var total=0;
+    Tienda.forEach(Element=>{
+
+      if(Element.Id==ide){
+        Element.Cantidad-=1
+      }
+      
+      if(Element.Cantidad<=0){
+        removeItem(Tienda,Element)
+        SubT=0
+        if(Element==null){
+          delete Tienda[Tienda.indexOf(Element)]
+       
+        }
+      }
+      if(Element.Cantidad>0){
+        var precio=Element.Precio
+                  var cant = Element.Cantidad
+                  var SubT = precio*cant
+                  console.log(SubT)
+                  cadena += `<tr>
+                  <td class="cell1001"> ${Element.Nombre} </td>
+                  <td class="cell1001"> ${Element.Precio} </td>
+                  <td class="cell1001"> ${Element.Cantidad} </td>
+                  <td class="cell1001"> ${SubT} </td>
+                  <td class="cell1002"> <button value="${Element.Id}" onclick="menos(this)" type="button" class="btn btn-outline-dark">-</button> <button value="${Element.Id}" onclick="mas(this)" type="button" class="btn btn-outline-dark">+</button> </td>
+                  </tr>` 
+
+                 
+
+      }
+        
+   
+       
+          total+=SubT
+        
+      
+    });
+                footer=`<tr>
+                  <th>TOTAL</th>
+                  <th> </th>
+                  <th> </th>
+                  <th>${total} </th>
+                  <th> </th>
+                </tr>`
+                console.log(total)
+                masCantidad(ide,1);
+                tabla.innerHTML = cadena
+                Fut.innerHTML = footer
+
+
+  }
+
+  function removeItem(Arreglo, item ) {
+
+    delete Arreglo[Arreglo.indexOf(item)]
+
+
+  }
+
+  function masCantidad(idmed,cantidad){
+    //cuando uso el boton menos
+    console.log(idmed)
+    cant = parseFloat(cantidad)
+    var objeto ={
+                  'Cantidad':cant
+								}
+    console.log(objeto)
+    fetch(`http://localhost:3000/Carrito/${idmed}`, {
+            								method: 'PUT',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              CargarMed()
+                							
+            							})
+
+
+  }
+
+  function menosCantidad(idmed,cantidad){
+        //cuando uso el boton mas
+    console.log(idmed)
+    cant = parseFloat(cantidad)
+    var objeto ={
+                  'Cantidad':cant
+								}
+    console.log(objeto)
+    fetch(`http://localhost:3000/Carritos/${idmed}`, {
+            								method: 'PUT',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              CargarMed()
+                							
+            							})
+
+
+  }
+
+  function Factura(){
+    
+    var pdf = new jsPDF();
+    
+                pdf.setFontStyle('bold');
+								pdf.autoTable({html:'#shopC',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:40}});
+								pdf.text(70,20,"Medicinas Compradas | UMedic")
+								pdf.save("FacturaMedicinas.pdf")
+
+                location.reload();  
+
+  }
+
+  function verPerfil(){
+        var user = sessionStorage.buscarP
+        console.log(user)
+
+        sessionStorage.setItem("buscar",user)
+
+        location.href="../Login_v15/modificarPP.html"
+        
+    }
+
+
+ 
+  </script>
+
+
+
+
+</body>
+
+</html>

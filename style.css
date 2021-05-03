@@ -1,0 +1,336 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #f2f2f2; 
+	font-size: 1em;
+	line-height: 1.5em;
+	
+	padding-top: 80px;
+}
+
+h1 {
+	font-size: 2.3em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	text-align: center;
+	font-weight: 300;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+
+
+#main-header {
+	background:rgb(61, 174, 202);
+	color: white;
+	height: 80px;
+
+    width: 100%; 
+	left: 0; 
+	top: 0;
+	position: fixed; 
+
+}	
+	#main-header a {
+		color: white;
+	}
+
+    #logo-header {
+        float: left;
+        padding: 30px 0 0 30px;
+        text-decoration: none;
+    }
+        #logo-header:hover {
+            color: #0b76a6;
+        }
+        
+        #logo-header .site-name {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        #logo-header .site-desc {
+            display: block;
+            font-weight: 300;
+            font-size: 0.8em;
+            color: #999;
+        }
+        nav {
+            float: right;
+        }
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                padding-right: 20px;
+            }
+            
+                nav ul li {
+                    display: inline-block;
+                    line-height: 80px;
+                }
+                    
+                    nav ul li a {
+                        display: block;
+                        padding: 0 10px;
+                        text-decoration: none;
+                    }
+                    
+                        nav ul li a:hover {
+                            background: #0b76a6;
+                        }
+                       
+
+            .site-footer
+            {
+              background-color:#585858;
+              padding:45px 0 20px;
+              font-size:15px;
+              line-height:24px;
+              color:#bdbdbd;
+            }
+            .site-footer hr
+            {
+              border-top-color:#bbb;
+              opacity:0.5
+            }
+            .site-footer hr.small
+            {
+              margin:20px 0
+            }
+            .site-footer h6
+            {
+              color:#fff;
+              font-size:16px;
+              text-transform:uppercase;
+              margin-top:5px;
+              letter-spacing:2px
+            }
+            .site-footer a
+            {
+              color:#bdbdbd;
+            }
+            .site-footer a:hover
+            {
+              color:#3366cc;
+              text-decoration:none;
+            }
+            .footer-links
+            {
+              padding-left:0;
+              list-style:none
+            }
+            .footer-links li
+            {
+              display:block
+            }
+            .footer-links a
+            {
+              color:#bdbdbd
+            }
+            .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+            {
+              color:#3366cc;
+              text-decoration:none;
+            }
+            .footer-links.inline li
+            {
+              display:inline-block
+            }
+            .site-footer .social-icons
+            {
+              text-align:right
+            }
+            .site-footer .social-icons a
+            {
+              width:40px;
+              height:40px;
+              line-height:40px;
+              margin-left:6px;
+              margin-right:0;
+              border-radius:100%;
+              background-color:#33353d
+            }
+            .copyright-text
+            {
+              margin:0
+            }
+            @media (max-width:991px)
+            {
+              .site-footer [class^=col-]
+              {
+                margin-bottom:30px
+              }
+            }
+            @media (max-width:767px)
+            {
+              .site-footer
+              {
+                padding-bottom:0
+              }
+              .site-footer .copyright-text,.site-footer .social-icons
+              {
+                text-align:center
+              }
+            }
+            .social-icons
+            {
+              padding-left:0;
+              margin-bottom:0;
+              list-style:none
+            }
+            .social-icons li
+            {
+              display:inline-block;
+              margin-bottom:4px
+            }
+            .social-icons li.title
+            {
+              margin-right:15px;
+              text-transform:uppercase;
+              color:#96a2b2;
+              font-weight:700;
+              font-size:13px
+            }
+            .social-icons a{
+              background-color:#eceeef;
+              color:#818a91;
+              font-size:16px;
+              display:inline-block;
+              line-height:44px;
+              width:44px;
+              height:44px;
+              text-align:center;
+              margin-right:8px;
+              border-radius:100%;
+              -webkit-transition:all .2s linear;
+              -o-transition:all .2s linear;
+              transition:all .2s linear
+            }
+            .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+            {
+              color:#fff;
+              background-color:#29aafe
+            }
+            .social-icons.size-sm a
+            {
+              line-height:34px;
+              height:34px;
+              width:34px;
+              font-size:14px
+            }
+            .social-icons a.facebook:hover
+            {
+              background-color:#3b5998
+            }
+            .social-icons a.twitter:hover
+            {
+              background-color:#00aced
+            }
+            .social-icons a.linkedin:hover
+            {
+              background-color:#007bb6
+            }
+            .social-icons a.dribbble:hover
+            {
+              background-color:#ea4c89
+            }
+            @media (max-width:767px)
+            {
+              .social-icons li.title
+              {
+                display:block;
+                margin-right:0;
+                font-weight:600
+              }
+            }
+
+
+.content{
+    margin-top: 50px;
+    margin-left: 50px;
+    width:400px;
+    height: 600px;
+    background-color: rgb(61, 174, 202);
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px rgb(134, 134, 134);
+}
+
+section#fondo{
+    background-image: url("fondo.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    height: 700px;
+}
+h1#titulo{
+    margin: 0;
+    color: mintcream;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+button{
+    
+    background-color: rgb(0, 127, 185);
+    border-radius: 15px;
+    border: 0;
+    height: 75px;
+    box-shadow: 5px 5px 5px rgb(14, 15, 70);
+     
+}
+img#logo{
+  margin-top: 100px;
+  margin-left:100px;
+  border-radius: 50px;
+  width: 500px;
+  height: 500px;
+  box-shadow:   10px 10px 5px rgb(184, 184, 184);
+  float: right;
+}
+img#logo2{
+  margin-top: 100px;
+  margin-left:100px;
+  border-radius: 50px;
+  width: 500px;
+  height: 500px;
+  box-shadow:   10px 10px 5px rgb(184, 184, 184);
+  float:left;
+}
+img#logo3{
+  margin-top: 75px;
+  margin-left:200px;
+  border-radius: 50px;
+  width: 550px;
+  height: 550px;
+  box-shadow:   10px 10px 5px rgb(184, 184, 184);
+  float:left;
+}
+img#logo4{
+  margin-top: 75px;
+  margin-left:100px;
+  border-radius: 50px;
+  width: 550px;
+  height: 550px;
+  box-shadow:   10px 10px 5px rgb(184, 184, 184);
+  float:left;
+}
+.mision{
+  background-color: rgb(58, 93, 158);
+  margin-top: 100px;
+  margin-left:200px;
+  border-radius: 50px;
+  width: 500px;
+  height: 500px;
+  box-shadow:   10px 10px 5px rgb(184, 184, 184);
+  float: right;
+  text-align: center;
+    color: rgb(255, 255, 255);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}

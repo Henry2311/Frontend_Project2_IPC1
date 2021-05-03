@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Administrador</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/vendor/animate/animate.css">
+
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/vendor/select2/select2.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/css/util.css">
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Header/css/main.css">
+ 
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body onload="ObtenerDatosDoc()">
+
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/logo.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light">Abner Cardona</h1>
+        <h1 class="text-light">Administrador</h1>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Principal</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Doctores</span></a></li>
+          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Enfermeras</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Pacientes</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Medicinas</span></a></li>
+          <li><a href="../index.html" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Cerrar Sesión</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Módulo de Administrador</h1>
+      <p><span class="typed" data-typed-items="Carga de usuarios"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Cargar Usuarios de Doctores</h2>
+        </div>
+
+        <div class="row">
+          <div data-aos="fade-right" >
+            <div class="limiter" >
+              <div >
+              <div id="target" >
+                <h2>Doctores</h2>
+                <table class="table table-striped" id="tabladoc">
+                  <thead class="thead-dark" >
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Contraseña</th>
+                      <th scope="col">Información</th>
+                    </tr>
+                  </thead>
+                  <tbody id="detalles" class="bodyC">
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div id="botones">
+            <h3>Cargar datos</h3>
+            <p class="fst-italic">
+              Para cargar los datos seleccione un archivo CSV 
+            </p>
+            
+            <div>
+              <form action="#">
+                <div class="input-file-container">  
+                  <input class="input-file" id="Cargadoctores" type="file" onclick="openFile()">
+                  <label tabindex="0" for="my-file" class="input-file-trigger">Seleccionar Archivo</label>
+                </div>
+                <p class="file-return"></p>
+              </form>
+  
+                <div class="container-login100-form-btn">
+                  <button onclick="CargarDoc()" id="submit-file" class="login100-form-btn" >
+                    Cargar Doctores
+                  </button>
+                </div>
+
+                <div class="container-login100-form-btn">
+                  <button id="cmd" class="login100-form-btn" onclick="PDF()">
+                    Generar Reporte PDF
+                  </button>
+                </div>
+            </div>
+            
+            
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Cargar Usuarios de Enfermeras</h2>
+          
+        </div>
+
+        <div class="row">
+          <div data-aos="fade-right">
+            <div class="limiter">
+              <div>
+              <div id=enfer>
+                <table class="table table-striped" id="tabladoc">
+                  <thead class="thead-dark" >
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Contraseña</th>
+                      <th scope="col">Información</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablaEnfermeras" class="bodyC">
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div id="botones">
+            <h3>Cargar datos</h3>
+            <p class="fst-italic">
+              Para cargar los datos seleccione un archivo CSV 
+            </p>
+            
+            <div>
+              <form action="#">
+                <div class="input-file-container">  
+                  <input class="input-file" id="Cargaenfermeras" type="file" onclick="openFileE()">
+                  <label tabindex="0" for="my-file" class="input-file-trigger" id="selec">Seleccionar Archivo</label>
+                </div>
+                <p class="file-return" id="ruta"></p>
+              </form>
+  
+                <div class="container-login100-form-btn">
+                  <button onclick="CargarEnfermera()" id="submit-file" class="login100-form-btn" >
+                    Cargar Enfermeras
+                  </button>
+                </div>
+
+                <div class="container-login100-form-btn">
+                  <button onclick="PDFE()" id="submit-file" class="login100-form-btn" >
+                    Generar Reporte PDF
+                  </button>
+                </div>
+
+            </div>
+            
+            
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Cargar Usuarios de Pacientes</h2>
+        </div>
+
+        <div class="row">
+          <div data-aos="fade-right">
+            <div class="limiter">
+              <div>
+              <div id="paci">
+                <table class="table table-striped" id="tabladoc">
+                  <thead class="thead-dark" >
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Contraseña</th>
+                      <th scope="col">Información</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablaPaciente" class="bodyC">
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div id="botones">
+            <h3>Cargar datos</h3>
+            <p class="fst-italic">
+              Para cargar los datos seleccione un archivo CSV 
+            </p>
+            
+            <div>
+              <form action="#">
+                <div class="input-file-container">  
+                  <input class="input-file" id="CargaP" type="file" onclick="openFileP()">
+                  <label tabindex="0" for="my-file" class="input-file-trigger" id="selecP">Seleccionar Archivo</label>
+                </div>
+                <p class="file-return" id="rutaP"></p>
+              </form>
+  
+                <div class="container-login100-form-btn">
+                  <button onclick="CargarPaciente()" id="submit-file" class="login100-form-btn" >
+                    Cargar Pacientes
+                  </button>
+                </div>
+
+                <div class="container-login100-form-btn">
+                  <button onclick="PDFP()" id="submit-file" class="login100-form-btn" >
+                    Generar Reporte PDF
+                  </button>
+                </div>
+            </div>
+            
+            
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Cargar Medicinas</h2>
+        </div>
+
+        <div class="row">
+          <div data-aos="fade-right">
+            <div class="limiter">
+              <div>
+              <div id="med">
+                <table class="table table-striped" id="tabladoc">
+                  <thead class="thead-dark" >
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Descripción</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Información</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablaMedicina" class="bodyC">
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div id="botones">
+            <h3>Cargar datos</h3>
+            <p class="fst-italic">
+              Para cargar los datos seleccione un archivo CSV 
+            </p>
+            
+            <div>
+              <form action="#">
+                <div class="input-file-container">  
+                  <input class="input-file" id="CargaM" type="file" onclick="openFileM()">
+                  <label tabindex="0" for="my-file" class="input-file-trigger" id="selecM">Seleccionar Archivo</label>
+                </div>
+                <p class="file-return" id="rutaM"></p>
+              </form>
+  
+                <div class="container-login100-form-btn">
+                  <button onclick="CargarMedicina()" id="submit-file" class="login100-form-btn" >
+                    Cargar Medicinas
+                  </button>
+                </div>
+
+                <div class="container-login100-form-btn">
+                  <button onclick="PDFM()" id="submit-file" class="login100-form-btn" >
+                    Generar Reporte PDF
+                  </button>
+                </div>
+            </div>
+            
+            
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <table>
+      <table id="PDFDOCTORES" style="text-align: center; display: none;" >
+        <thead >
+          <tr>
+          <th scope="col1">Nombre</th>
+          <th scope="col1">Apellido</th>
+          <th scope="col1">User</th>
+          <th scope="col1">Contraseña</th>
+          <th scope="col1">Nacimiento</th>
+          <th scope="col1">Teléfono</th>
+          <th scope="col1">Especialidad</th>
+          <th scope="col1">Género</th>
+          </tr>
+        </thead>
+        <tbody id="BodyFACDOC">
+          
+        </tbody>
+        </table>
+    </table>
+
+    <table>
+      <table id="PDFENFERMERAS" style="text-align: center; display: none;" >
+        <thead >
+          <tr>
+          <th scope="col1">Nombre</th>
+          <th scope="col1">Apellido</th>
+          <th scope="col1">User</th>
+          <th scope="col1">Contraseña</th>
+          <th scope="col1">Nacimiento</th>
+          <th scope="col1">Teléfono</th>
+          <th scope="col1">Género</th>
+          </tr>
+        </thead>
+        <tbody id="BodyFACE">
+          
+        </tbody>
+        </table>
+    </table>
+    <table>
+      <table id="PDFPACIENTES" style="text-align: center; display: none;" >
+        <thead >
+          <tr>
+          <th scope="col1">Nombre</th>
+          <th scope="col1">Apellido</th>
+          <th scope="col1">User</th>
+          <th scope="col1">Contraseña</th>
+          <th scope="col1">Nacimiento</th>
+          <th scope="col1">Teléfono</th>
+          <th scope="col1">Género</th>
+          </tr>
+        </thead>
+        <tbody id="BodyFACP">
+          
+        </tbody>
+        </table>
+    </table>
+    <table>
+      <table id="PDFMEDICINAS" style="text-align: center; display: none;" >
+        <thead >
+          <tr>
+          <th scope="col1">Nombre</th>
+          <th scope="col1">Precio</th>
+          <th scope="col1">Descripción</th>
+          <th scope="col1">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody id="BodyFACM">
+          
+        </tbody>
+        </table>
+    </table>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Henry Mendoza</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="">Lab IPC1</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-1.11.0.js" integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw=" crossorigin="anonymous"></script>
+  <script src="papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+	
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script> src = "papaparse.min.js" </script>
+ 
+
+  
+  <script>
+  function PDF(){
+ 
+    var pdf = new jsPDF();
+            
+            pdf.setFontStyle('bold');
+            pdf.autoTable({html:'#PDFDOCTORES',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:40}});
+            pdf.text(70,20,"Listado de Doctores");
+            pdf.save("Doctores.pdf")
+        
+
+  }
+  function PDFE(){
+    
+    var pdf = new jsPDF();
+            
+            pdf.setFontStyle('bold');
+            pdf.autoTable({html:'#PDFENFERMERAS',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:40}});
+            pdf.text(70,20,"Listado de Enfermeras");
+            pdf.save("Enfermeras.pdf")
+        
+
+  }
+
+  function PDFP(){
+    
+    var pdf = new jsPDF();
+            
+            pdf.setFontStyle('bold');
+            pdf.autoTable({html:'#PDFPACIENTES',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:40}});
+            pdf.text(70,20,"Listado de Pacientes");
+            pdf.save("Pacientes.pdf")
+        
+
+  }
+
+  function PDFM(){
+    
+    var pdf = new jsPDF();
+            
+            pdf.setFontStyle('bold');
+            pdf.autoTable({html:'#PDFMEDICINAS',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:40}});
+            pdf.text(70,20,"Listado de Medicinas");
+            pdf.save("Medicinas.pdf")
+        
+
+  }
+  </script>
+
+  
+  <script>
+    var fileInput  = document.querySelector( ".input-file" ),  
+            button     = document.querySelector( ".input-file-trigger" ),
+            the_return = document.querySelector(".file-return");
+
+
+    var FI = document.querySelector( '#Cargaenfermeras' ), 
+         B = document.querySelector( '#selec' ),
+         R = document.querySelector( '#ruta' );
+
+    var FIP = document.querySelector( '#CargaP' ), 
+         BP = document.querySelector( '#selecP' ),
+         RP = document.querySelector( '#rutaP' );
+    
+    var FIM = document.querySelector( '#CargaM' ), 
+         BM = document.querySelector( '#selecM' ),
+         RM = document.querySelector( '#rutaM' );     
+
+    function openFile(){
+      document.querySelector("html").classList.add('js');
+        button.addEventListener( "keydown", function( event ) {  
+            if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+                fileInput.focus();  
+            }  
+          });
+        button.addEventListener( "click", function( event ) {
+              fileInput.focus();
+              return false;
+          });  
+        fileInput.addEventListener( "change", function( event ) {  
+            var archivoRuta=fileInput.value;
+            console.log(archivoRuta)
+            var Ext= /(.csv)$/i;
+                if(!Ext.exec(archivoRuta)){
+                    alert("Ingrese un Archivo CSV por favor")
+                    fileInput.value='';
+                    return false;
+                }else{
+                  the_return.innerHTML = this.value;  
+                }
+              
+    }); 
+    }
+
+
+    function openFileE(){
+      document.querySelector("html").classList.add('js');
+        B.addEventListener( "keydown", function( event ) {  
+            if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+                FI.focus();  
+            }  
+          });
+        B.addEventListener( "click", function( event ) {
+              FI.focus();
+              return false;
+          });  
+        FI.addEventListener( "change", function( event ) {  
+            var archivoRuta=FI.value;
+            console.log(archivoRuta)
+            var Ext= /(.csv)$/i;
+                if(!Ext.exec(archivoRuta)){
+                    alert("Ingrese un Archivo CSV por favor")
+                    FI.value='';
+                    return false;
+                }else{
+                  R.innerHTML = this.value;  
+                }
+              
+    }); 
+    }
+
+    function openFileP(){
+      document.querySelector("html").classList.add('js');
+        BP.addEventListener( "keydown", function( event ) {  
+            if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+                FIP.focus();  
+            }  
+          });
+        BP.addEventListener( "click", function( event ) {
+              FIP.focus();
+              return false;
+          });  
+        FIP.addEventListener( "change", function( event ) {  
+            var archivoRuta=FIP.value;
+            console.log(archivoRuta)
+            var Ext= /(.csv)$/i;
+                if(!Ext.exec(archivoRuta)){
+                    alert("Ingrese un Archivo CSV por favor")
+                    FIP.value='';
+                    return false;
+                }else{
+                  RP.innerHTML = this.value;  
+                }
+              
+    }); 
+    }
+
+
+    function openFileM(){
+      document.querySelector("html").classList.add('js');
+        BM.addEventListener( "keydown", function( event ) {  
+            if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+                FIM.focus();  
+            }  
+          });
+        BM.addEventListener( "click", function( event ) {
+              FIM.focus();
+              return false;
+          });  
+        FIM.addEventListener( "change", function( event ) {  
+            var archivoRuta=FIM.value;
+            console.log(archivoRuta)
+            var Ext= /(.csv)$/i;
+                if(!Ext.exec(archivoRuta)){
+                    alert("Ingrese un Archivo CSV por favor")
+                    FIM.value='';
+                    return false;
+                }else{
+                  RM.innerHTML = this.value;  
+                }
+              
+    }); 
+    }
+
+
+
+    function CargarDoc(){
+      $('#Cargadoctores').parse({
+        config: {
+          delimiter:",",
+          complete: AsignarDoctor,
+        },
+        before: function(file,inputElem)
+        {
+          console.log("Parsing file...", file);
+        },
+        error: function(err,file)
+        {
+          console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          console.log("Done with all files");
+          alert("Se agregaron los usuarios exitosamente")
+          ObtenerDatosDoc()
+
+        }
+      });
+    } 
+   
+    function AsignarDoctor(results){
+      console.log(results.data)
+      var data = results.data;
+      data.shift();
+
+      data.forEach(element =>{
+
+        console.log(element)
+        var objeto={
+            'Nombre' : element[0],
+						'Apellido' : element[1],
+						'Fecha': element[2],
+						'Género': element[3],
+						'User': element[4],
+						'Contraseña' : element[5],
+            'Especialidad' : element[6],
+						'Teléfono' : element[7]
+        }
+        console.log(objeto)
+
+        fetch('http://localhost:3000/Doctores', {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							//alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              //alert(response.Mensaje)
+                						
+            							})
+
+
+      });
+      
+      
+    }
+     
+
+    function CargarEnfermera(){
+      $('#Cargaenfermeras').parse({
+        config: {
+          delimiter:",",
+          complete: AsignarE,
+        },
+        before: function(file,inputElem)
+        {
+          console.log("Parsing file...", file);
+        },
+        error: function(err,file)
+        {
+          console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          console.log("Done with all files");
+          alert("Se agregaron los usuarios exitosamente")
+          ObtenerDatosDoc()
+
+        }
+      });
+    } 
+   
+    function AsignarE(results){
+      console.log(results.data)
+      var data = results.data;
+      data.shift();
+
+      data.forEach(element =>{
+
+        console.log(element)
+        var objeto={
+            'Nombre' : element[0],
+						'Apellido' : element[1],
+						'Fecha': element[2],
+						'Género': element[3],
+						'User': element[4],
+						'Contraseña' : element[5],
+						'Teléfono' : element[6]
+        }
+        console.log(objeto)
+
+        fetch('http://localhost:3000/Enfermeras', {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							//alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              //alert(response.Mensaje)
+                						
+            							})
+
+
+      });
+      
+      
+    }
+   
+
+    function CargarPaciente(){
+      $('#CargaP').parse({
+        config: {
+          delimiter:",",
+          complete: AsignarP,
+        },
+        before: function(file,inputElem)
+        {
+          console.log("Parsing file...", file);
+        },
+        error: function(err,file)
+        {
+          console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          console.log("Done with all files");
+          alert("Se agregaron los usuarios exitosamente")
+          ObtenerDatosDoc()
+
+        }
+      });
+    } 
+   
+    function AsignarP(results){
+      console.log(results.data)
+      var data = results.data;
+      data.shift();
+
+      data.forEach(element =>{
+
+        console.log(element)
+        var objeto={
+            'Nombre' : element[0],
+						'Apellido' : element[1],
+						'Fecha': element[2],
+						'Género': element[3],
+						'User': element[4],
+						'Contraseña' : element[5],
+						'Teléfono' : element[6]
+        }
+        console.log(objeto)
+
+        fetch('http://localhost:3000/Pacientes', {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							//alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              //alert(response.Mensaje)
+                						
+            							})
+
+
+      });
+      
+      
+    }
+
+
+    function CargarMedicina(){
+      $('#CargaM').parse({
+        config: {
+          delimiter:",",
+          complete: AsignarM,
+        },
+        before: function(file,inputElem)
+        {
+          console.log("Parsing file...", file);
+        },
+        error: function(err,file)
+        {
+          console.log("ERROR:", err, file);
+        },
+        complete: function()
+        {
+          console.log("Done with all files");
+          alert("Se agregaron los usuarios exitosamente")
+          ObtenerDatosDoc()
+
+        }
+      });
+    } 
+   
+    function AsignarM(results){
+      console.log(results.data)
+      var data = results.data;
+      data.shift();
+
+      data.forEach(element =>{
+
+        console.log(element)
+        var objeto={
+            'Nombre' : element[0],
+						'Precio' : element[1],
+						'Descripción': element[2],
+						'Cantidad': element[3]
+        }
+        console.log(objeto)
+
+        fetch('http://localhost:3000/Medicinas', {
+            								method: 'POST',
+            								body: JSON.stringify(objeto),
+            								headers:{
+                						'Content-Type': 'application/json',
+                						'Access-Control-Allow-Origin': '*',}})
+
+										.then(res => res.json())
+            							.catch(err => {
+                							console.error('Error:', err)
+                							//alert("Ocurrio un error")
+            							})
+										.then(response =>{
+               
+                							console.log(response);
+                              //alert(response.Mensaje)
+                						
+            							})
+
+
+      });
+      
+      
+    }
+
+
+
+
+    function ObtenerDatosDoc(){
+            var tabla = document.querySelector('#detalles')
+            var cadena = ''
+            var table = document.querySelector('#BodyFACDOC')
+            var doctores = ''
+            fetch('http://localhost:3000/Doctores', {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',}})
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Error:', err)
+                alert("Ocurrio un error, ver la consola")
+            })
+            .then(response =>{
+                console.log(response);
+              
+                response.forEach(element => {
+                   
+                    console.log(element)
+  
+                    cadena += `<tr>
+                      <td > ${element.Nombre} </td>
+                      <td > ${element.Apellido} </td>
+                      <td > ${element.User} </td>
+                      <td > ${element.Contraseña} </td>
+                      <td > <button value=${element.User} onclick="verPerfilDoc(this)" type="button" class="btn btn-outline-dark">Ver Perfil</button> </td>
+                      </tr>`        
+                        
+                      doctores += `<tr>
+                      <td > ${element.Nombre} </td>
+                      <td > ${element.Apellido} </td>
+                      <td > ${element.User} </td>
+                      <td > ${element.Contraseña} </td>
+                      <td > ${element.Fecha} </td>
+                      <td > ${element.Teléfono} </td>
+                      <td > ${element.Especialidad} </td>
+                      <td > ${element.Género} </td>
+                      </tr>`
+
+                });
+                tabla.innerHTML = cadena
+                table.innerHTML = doctores
+            })
+
+            ObtenerDatosEnfermera()
+        }
+        
+        function ObtenerDatosEnfermera(){
+
+          var tabla = document.querySelector('#tablaEnfermeras')
+            var cadena = ''
+            var table = document.querySelector('#BodyFACE')
+            var doctores = ''
+            fetch('http://localhost:3000/Enfermeras', {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',}})
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Error:', err)
+                alert("Ocurrio un error, ver la consola")
+            })
+            .then(response =>{
+                console.log(response);
+              
+                response.forEach(element => {
+                   
+                    console.log(element)
+  
+                    cadena += `<tr>
+                      <td class="cell1001"> ${element.Nombre} </td>
+                      <td class="cell1001"> ${element.Apellido} </td>
+                      <td class="cell1001"> ${element.User} </td>
+                      <td class="cell1001"> ${element.Contraseña} </td>
+                      <td class="cell1002"> <button value=${element.User} onclick="verPerfilE(this)" type="button" class="btn btn-outline-dark">Ver Perfil</button> </td>
+                      </tr>`        
+                      doctores += `<tr>
+                      <td > ${element.Nombre} </td>
+                      <td > ${element.Apellido} </td>
+                      <td > ${element.User} </td>
+                      <td > ${element.Contraseña} </td>
+                      <td > ${element.Fecha} </td>
+                      <td > ${element.Teléfono} </td>
+                      <td > ${element.Género} </td>
+                      </tr>`   
+                });
+                tabla.innerHTML = cadena
+                table.innerHTML = doctores
+            })
+
+            ObtenerDatosPaciente()
+        }
+        
+        function ObtenerDatosPaciente(){
+
+          var tabla = document.querySelector('#tablaPaciente')
+          var cadena = ''
+          var table = document.querySelector('#BodyFACP')
+            var doctores = ''
+          fetch('http://localhost:3000/Pacientes', {
+            method: 'GET',
+            headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+    
+                response.forEach(element => {
+         
+                  console.log(element)
+
+                  cadena += `<tr>
+                  <td class="cell1001"> ${element.Nombre} </td>
+                  <td class="cell1001"> ${element.Apellido} </td>
+                  <td class="cell1001"> ${element.User} </td>
+                  <td class="cell1001"> ${element.Contraseña} </td>
+                  <td class="cell1002"> <button value=${element.User} onclick="verPerfilP(this)" type="button" class="btn btn-outline-dark">Ver Perfil</button> </td>
+                  </tr>`        
+                  doctores += `<tr>
+                      <td > ${element.Nombre} </td>
+                      <td > ${element.Apellido} </td>
+                      <td > ${element.User} </td>
+                      <td > ${element.Contraseña} </td>
+                      <td > ${element.Fecha} </td>
+                      <td > ${element.Teléfono} </td>
+                      <td > ${element.Género} </td>
+                      </tr>`
+          });
+      tabla.innerHTML = cadena
+      table.innerHTML = doctores
+  })
+
+  ObtenerDatosMedicina()
+}
+
+
+        function ObtenerDatosMedicina(){
+          var tabla = document.querySelector('#tablaMedicina')
+          var cadena = ''
+          var table = document.querySelector('#BodyFACM')
+            var doctores = ''
+          
+          fetch('http://localhost:3000/Medicinas', {
+            method: 'GET',
+            headers:{
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',}})
+          .then(res => res.json())
+          .catch(err => {
+              console.error('Error:', err)
+              alert("Ocurrio un error, ver la consola")
+          })
+          .then(response =>{
+              console.log(response);
+    
+                response.forEach(element => {
+         
+                  console.log(element)
+
+                  cadena += `<tr>
+                  <td class="cell1001"> ${element.Nombre} </td>
+                  <td class="cell1001"> ${element.Precio} </td>
+                  <td class="cell1001"> ${element.Descripción} </td>
+                  <td class="cell1001"> ${element.Cantidad} </td>
+                  <td class="cell1002"> <button value=${element.Id} onclick="verPerfilM(this)" type="button" class="btn btn-outline-dark">Acciones</button> </td>
+                  </tr>`        
+                  doctores += `<tr>
+                      <td > ${element.Nombre} </td>
+                      <td > ${element.Precio} </td>
+                      <td > ${element.Descripción} </td>
+                      <td > ${element.Cantidad} </td>
+                      </tr>`
+          });
+      tabla.innerHTML = cadena
+      table.innerHTML = doctores
+  })
+
+        }
+
+
+
+
+    function verPerfilDoc(boton){
+        var usuario = boton.value
+
+        sessionStorage.setItem("buscar",usuario)
+
+        location.href="../Login_v15/modificar.html"
+        
+    }
+
+    function verPerfilP(boton){
+        var usuario = boton.value
+
+        sessionStorage.setItem("buscar",usuario)
+
+        location.href="../Login_v15/modificarP.html"
+        
+    }
+    function verPerfilE(boton){
+        var usuario = boton.value
+
+        sessionStorage.setItem("buscar",usuario)
+
+        location.href="../Login_v15/modificarE.html"
+        
+    }
+    function verPerfilM(boton){
+        var nombre = boton.value
+
+        sessionStorage.setItem("buscar",nombre)
+
+        location.href="../Login_v15/modificarM.html"
+        
+    }
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Facturación</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+
+</head>
+<body onload="llenarADOC()">
+	<header id="main-header">
+		
+		<a id="logo-header" href="">
+			<span class="site-name">UMedic | Inicio</span>
+		</a>
+
+		
+
+	</header>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/encabezado.jpg);">
+					<span class="login100-form-title-1">
+						Facturación 
+					</span>
+				</div>
+				
+				<form class="login100-form validate-form" id="fac">
+						<div id="facturacion">
+							<div class="wrap-input100 validate-input m-b-26" data-validate="Ingrese un Nombre">
+								<span class="label-input100">Fecha*</span>
+								<input class="input100" type="date" name="NA" id="fecha">
+								<span class="focus-input100"></span>
+							</div>
+		
+							<div class="wrap-input100 validate-input m-b-26" data-validate="Ingrese el nombre del Paciente">
+								<span class="label-input100">Paciente*</span>
+								<input class="input100" type="text" name="ape" id="paciente">
+								<span class="focus-input100"></span>
+							</div>
+		
+							<div class="wrap-input100 validate-input m-b-26"  id="selectDoc">
+								<span class="label-input100">Doctor*</span>
+								<select class="input100" name="combo"  id="Doctor">
+		
+								</select>
+								<span class="focus-input100"></span>`	
+							</div>
+		
+							<div class="wrap-input100 validate-input m-b-18" data-validate = "Ingrese una Contraseña">
+								<span class="label-input100">Precio de Consulta*</span>
+								<input class="input100" type="text" name="pass"  id="Consulta">
+								<span class="focus-input100"></span>
+							</div>
+		
+							<div class="wrap-input100" >
+								<span class="label-input100">Precio de Operación</span>
+								<input class="input100" type="text" name="celu"  id="Operación">
+								<span class="focus-input100"></span>
+							</div>
+							
+							<div class="wrap-input100" >
+								<span class="label-input100">Costo de Internado</span>
+								<input class="input100" type="text" name="celu"  id="Internado">
+								<span class="focus-input100"></span>
+							</div>
+							
+							<div class="wrap-input100" >
+								<span class="label-input100">Total</span>
+								<input class="input100" type="text" name="celu"  id="total">
+								<span class="focus-input100"></span>
+							</div>
+
+
+
+						</div>
+						
+					
+					
+					
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<label for="ckb1">
+								(*) Campos Obligatorios
+							</label>
+						</div>
+
+						
+					</div>
+
+					
+					<div class="container-login100-form-btn">
+						<button onclick="TOTAL()" type="button" class="login100-form-btn4">
+							Total
+						</button>
+						<button onclick="PDF()" type="button" class="login100-form-btn4">
+							Generar
+						</button>
+						<button onclick="Eliminar()" type="button" class="login100-form-btn3">
+							Limpiar
+						</button>
+						<button onclick="Regresar()" type="button" class="login100-form-btn2">
+							Regresar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<table>
+		<table id="FacturaConsulta" style="text-align: center; display: none;" >
+			<thead >
+			  <tr>
+				<th scope="col1">No.</th>
+				<th scope="col1">Descripción</th>
+				<th scope="col1">Subtotal</th>
+			  </tr>
+			</thead>
+			<tbody id="BodyFAC">
+				
+			</tbody>
+		  </table>
+	</table>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+	<script src="https://code.jquery.com/jquery-1.11.0.js" integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw=" crossorigin="anonymous"></script>
+	
+
+	<script>
+		
+		
+		
+		function PDF(){
+			
+			const pdf = new jsPDF();
+			var Data = []
+			var columns = ["No","Descripcion","Total"]
+
+			var fecha = document.querySelector('#fecha').value
+			var paciente = document.querySelector('#paciente').value
+			var doctor = document.querySelector('#Doctor').value
+			var consulta = parseFloat(document.querySelector('#Consulta').value) 
+			var operacion = parseFloat(document.querySelector('#Operación').value)
+			var internado = parseFloat(document.querySelector('#Internado').value)
+			var total = parseFloat(document.querySelector('#total').value)
+
+
+			if(fecha!=''){
+				if(paciente!=''){
+					if(doctor!=''){
+						if(consulta!=0){
+							if(total!=0){
+
+
+								if(operacion==''){
+								operacion=0;
+								}
+								if(internado==''){
+								internado=0;
+								}
+								
+								
+
+								pdf.setFontStyle('bold');
+								pdf.autoTable({html:'#FacturaConsulta',theme:'striped',pageBreak:'auto',rowPageBreak:'avoid',margin:{top:70}});
+								pdf.text(70,20,"Gastos Hospitalarios | UMedic")
+								pdf.text(20,40,"Doctor: "+doctor+"                        "+"Fecha: "+fecha);
+								pdf.text(20,60,"Paciente: "+paciente);
+								pdf.save("FacturaConsulta.pdf")
+								
+								
+
+
+
+							}else{alert('Calcule el total para genera la factura')}
+						}else{alert('Llene todos los campos para generar la factura')}
+					}else{alert('Llene todos los campos para generar la factura')}
+				}else{alert('Llene todos los campos para generar la factura')}
+			}else{alert('Llene todos los campos para generar la factura')}
+
+  }
+
+		function TOTAL(){
+			var cadena=''
+			var table = document.querySelector("#BodyFAC")
+			var fecha = document.querySelector('#fecha').value
+			var paciente = document.querySelector('#paciente').value
+			var doctor = document.querySelector('#Doctor').value
+			var consulta = parseFloat(document.querySelector('#Consulta').value) 
+			var operacion = parseFloat(document.querySelector('#Operación').value)
+			var internado = parseFloat(document.querySelector('#Internado').value)
+			var total = 0;
+			if(fecha!=''){
+				if(paciente!=''){
+					if(doctor!=''){
+						if(consulta!=0){
+
+
+							if(operacion==''){
+								operacion=0;
+							}
+							if(internado==''){
+								internado=0;
+							}
+
+							total = consulta+operacion+internado
+							document.querySelector('#total').value = total
+
+							cadena+=`<tr>
+					<td>1</td>
+					<td>Consulta</td>
+					<td>Q${consulta}</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Operación</td>
+					<td>Q${operacion}</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Internado</td>
+					<td>Q${internado}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>Total</td>
+					<td>Q${total}</td>
+				</tr>`
+
+				table.innerHTML=cadena;
+
+						}else{alert('Llene todos los campos para generar la factura')}
+					}else{alert('Llene todos los campos para generar la factura')}
+				}else{alert('Llene todos los campos para generar la factura')}
+			}else{alert('Llene todos los campos para generar la factura')}
+
+		}
+
+		function llenarADOC(){
+			
+			
+
+			fetch('http://localhost:3000/Doctores', {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',}})
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Error:', err)
+                alert("Ocurrio un error, ver la consola")
+            })
+            .then(response =>{
+                console.log(response);
+                response.forEach(element => {
+                   var doctor = element.Nombre+" "+element.Apellido
+				   var añadir = document.getElementById("Doctor"),
+				   newOption=document.createElement("OPTION"),
+				   newOptionVal= document.createTextNode(doctor);
+				   newOption.appendChild(newOptionVal);
+				   añadir.insertBefore(newOption,añadir.lastChild)
+                   
+
+                });
+
+
+				
+            })
+			
+			
+		}
+		
+		
+
+
+		function Eliminar(){
+			document.querySelector('#fecha').value=''
+			document.querySelector('#paciente').value=''
+			document.querySelector('#Doctor').value=''
+			document.querySelector('#Consulta').value=''
+			document.querySelector('#Operación').value=''
+			document.querySelector('#Internado').value=''
+			document.querySelector('#total').value=''
+            
+            
+
+		}
+
+
+		function Regresar(){
+			var usuario = sessionStorage.buscar
+			sessionStorage.setItem("buscarE",usuario)
+			location.href="../iPortfolio/enfermera.html"
+			
+		}
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
